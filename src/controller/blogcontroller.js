@@ -25,7 +25,22 @@ exports.createBlog = async (req, res) => {
 // Get all blogs
 exports.getAllBlogs = async (req, res) => {
     try {
-        const blogs = await Blogs.find() // Await the result
+        const { term } = req.query;
+
+        // Create a filter object
+        let filter = {};
+
+        // If a search term is provided, search in the 'title' or 'content' fields
+        if (term) {
+            filter = {
+                $or: [
+                    { title: { $regex: term, $options: 'i' } }, // Case-insensitive search
+                    { content: { $regex: term, $options: 'i' } }
+                ]
+            };
+        }
+
+        const blogs = await Blogs.find(filter) // Await the result
         res.status(200).json(blogs)
     } catch (ex) {
         res.status(500).json({
