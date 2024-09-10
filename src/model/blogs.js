@@ -1,37 +1,35 @@
 const mongoose = require('mongoose')
 
 const BlogSchema = new mongoose.Schema({
-    title:{
+    title: {
         type: String,
         required: true,
         trim: true
     },
-    content:{
+    content: {
         type: String,
         required: true,
         trim: true
     },
-    tag:{
+    tags: { // Changed to tags for consistency
         type: [String],
         required: true,
     },
-    createdAt:{
+    createdAt: {
         type: Date,
-        required: true,
         default: Date.now
     },
-    updatedAt:{
+    updatedAt: {
         type: Date,
-        required:true,
         default: Date.now
     }
 })
 
+// Middleware to update the 'updatedAt' field before saving
 BlogSchema.pre('save', function(next) {
     this.updatedAt = Date.now()
     next()
 })
 
 const Blogs = mongoose.model('Blogs', BlogSchema)
-
 module.exports = Blogs
