@@ -21,8 +21,8 @@ Follow these steps to get the project running on your local machine:
 
 1. Clone the Repository
 ```
-    git clone https://github.com/yourusername/blog-api.git
-    cd blog-api
+    git clone https://github.com/erpranavknigam/BloggingPlatformAPI.git
+    cd <repository_directory>
 
 ```
 
