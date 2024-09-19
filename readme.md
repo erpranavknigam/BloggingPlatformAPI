@@ -5,7 +5,7 @@
 
 This project is a simple Blog API built using Node.js, Express, and MongoDB. It allows you to create, read, update, and delete blog posts, as well as search blogs by title or content.
 
-### Project URL
+## Project URL
 [![Project Page](https://img.shields.io/badge/Project%20Page-Click%20Here-brightgreen)](https://roadmap.sh/projects/blogging-platform-api)
 
 ## Requirements
